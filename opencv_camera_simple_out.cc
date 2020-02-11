@@ -1,4 +1,5 @@
 // By Art Gavrysh: ghavart@gmail.com (2020)
+// https://devtalk.nvidia.com/default/topic/1049463/jetson-nano/i-ve-plugged-in-the-mipi-csi-camera-but-nothing-comes-up-when-i-open-the-cam-/
 
 #include <opencv2/opencv.hpp>
 

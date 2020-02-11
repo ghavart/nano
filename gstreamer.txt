@@ -1,0 +1,5 @@
+## Nano
+gst-launch-1.0 nvarguscamerasrc num-buffers=-1 ! 'video/x-raw(memory:NVMM),width=1920, height=1080, framerate=30/1, format=NV12' ! nvvidconv flip-method=2 ! omxh264enc ! h264parse ! rtph264pay config-interval=1 ! udpsink host=10.42.0.1 port=9000
+
+## Client
+gst-launch-1.0 -v udpsrc port=9000 caps='application/x-rtp, media=video, clock-rate=90000, encoding-name=H264, framerate=30/1, width=1920, height=1080, playload=(int)96' ! rtpjitterbuffer drop-on-latency=true ! rtph264depay ! avdec_h264 ! videoflip method=vertical-flip ! autovideosink sync=false async=false
